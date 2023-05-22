@@ -1,0 +1,15 @@
+type: docker
+name: build
+kind: pipeline
+
+steps:
+- name: publish
+  image: plugins/docker
+  pull: always
+  settings:
+    repo: kit101z/clcc-java
+    auto_tag: true
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
